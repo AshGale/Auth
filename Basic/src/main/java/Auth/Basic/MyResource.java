@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import Auth.Data.DummyService;
+import Auth.Module.Login;
 import Auth.Module.User;
 
 /**
@@ -93,7 +94,7 @@ public class MyResource {
     //has username, password, token infomration
     @POST
     @Path("login")
-    public Response login(User userCredentials){
+    public Response login(Login userCredentials){
     	System.out.println("Login Credentials: " + userCredentials);
     	
     	Response response = Response.status(Response.Status.CREATED)

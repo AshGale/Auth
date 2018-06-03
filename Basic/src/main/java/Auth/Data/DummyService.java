@@ -94,7 +94,9 @@ public class DummyService {
 	public String addJsonPadding(String key, String value) {
 		return "{\""+key+"\":\""+value+"\"}";
 	}
-
+	
+	
+	//should be login class, but due to dummy data, is here for simplicity
 	public boolean checkCredentials(String username, String password) {
 		
 		boolean passwordMatch = false;
