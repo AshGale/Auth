@@ -9,6 +9,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
 import org.glassfish.jersey.internal.util.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import Auth.Data.DummyService;
 import sun.util.locale.StringTokenIterator;
@@ -22,6 +23,7 @@ public class AuthFilter implements ContainerRequestFilter {
 	private static final String AUTHORIZATION_URL_SECURE = "secure";
 	private static final String AUTHORIZATION_URL_LOGIN = "Login";
 
+	@Autowired
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {		
 		
@@ -35,6 +37,7 @@ public class AuthFilter implements ContainerRequestFilter {
 				String authToken = authHeader.get(0);
 				authToken = authToken.replaceFirst(AUTHORIZATION_HEADER_PREFIX, "");
 				String decodedToken = Base64.decodeAsString(authToken);
+				
 				StringTokenIterator tokenizer = new StringTokenIterator(decodedToken, ":");
 				String username = tokenizer.first();
 				String password = tokenizer.next();

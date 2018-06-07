@@ -90,7 +90,6 @@ public class MyResource {
 		return response;
     }
     
-  //TODO change user to Login Object
     //has username, password, token infomration
     @POST
     @Path("login")
